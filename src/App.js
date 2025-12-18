@@ -198,7 +198,7 @@ const NovaChat = ({ products, addToCart, toggleFav, favorites, lang, t }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/api/chat-stylist', {
+      const res = await fetch('https://epoque-fashion-store.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: [...messages, userMsg] })
@@ -446,7 +446,7 @@ const Account = ({ user, setUser, onLogout, t }) => {
     const payload = isLoginMode ? { email: formData.email, password: formData.password } : formData;
 
     try {
-      const res = await fetch(`http://localhost:5000${endpoint}`, {
+      const res = await fetch(`https://epoque-fashion-store.onrender.com${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -550,7 +550,7 @@ function App() {
   // FETCH PRODUCTS AND RESTORE SESSION
   useEffect(() => {
     // 1. Get Products
-    fetch('http://localhost:5000/api/products')
+    fetch('https://epoque-fashion-store.onrender.com')
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
