@@ -198,7 +198,7 @@ const NovaChat = ({ products, addToCart, toggleFav, favorites, lang, t }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('https://epoque-fashion-store.onrender.com/api/products', {
+      const res = await fetch('https://epoque-fashion-store.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: [...messages, userMsg] })
@@ -550,7 +550,7 @@ function App() {
   // FETCH PRODUCTS AND RESTORE SESSION
   useEffect(() => {
     // 1. Get Products
-    fetch('https://epoque-fashion-store.onrender.com')
+    fetch('https://epoque-fashion-store.onrender.com/api/products')
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
