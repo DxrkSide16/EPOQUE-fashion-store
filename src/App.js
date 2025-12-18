@@ -198,7 +198,7 @@ const NovaChat = ({ products, addToCart, toggleFav, favorites, lang, t }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('https://epoque-fashion-store.onrender.com', {
+      const res = await fetch('https://epoque-fashion-store.onrender.com/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: [...messages, userMsg] })
